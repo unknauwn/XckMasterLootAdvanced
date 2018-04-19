@@ -1,0 +1,357 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Script file="XckMLAdvancedML.lua"></Script>
+	<Button name="SelectionButtonTemplate" parent="UIParent" virtual="true">
+		<Size><AbsDimension y="32" /></Size>
+		<Anchors>
+			<Anchor point="RIGHT">
+				<Offset x="-5" y="0" />
+			</Anchor>
+			<Anchor point="LEFT">
+				<Offset x="5" y="0" />
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnClick>
+				XckMLAdvancedLUA:SelectionButtonClicked(getglobal(this:GetName()))
+			</OnClick>
+		</Scripts>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parent_ItemTexture" file="">					
+					<Size>
+						<AbsDimension x="32" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="7" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString name="$parent_ItemLink" inherits="GameFontNormalSmall"
+				justifyH="LEFT" text="No item selected">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_ItemTexture">
+							<Offset x="5" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<HighlightTexture>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativePoint="TOPLEFT" />
+				<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" />
+			</Anchors>
+			<Color r="1" g="1" b="1" a="1" />
+			<Gradient orientation="HORIZONTAL">
+				<MinColor r="1" g="1" b="1" a=".05" />
+				<MaxColor r="1" g="1" b="1" a=".2" />
+			</Gradient>
+		</HighlightTexture>
+	</Button>
+	<Button name="PlayerSelectionButtonTemplate" parent="UIParent" virtual="true">
+		<Size><AbsDimension y="15" /></Size>
+		<Anchors>
+			<Anchor point="RIGHT">
+				<Offset x="-5" y="0" />
+			</Anchor>
+			<Anchor point="LEFT">
+				<Offset x="5" y="0" />
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnClick>
+				XckMLAdvancedLUA:PlayerSelectionButtonClicked(getglobal(this:GetName()))
+			</OnClick>
+		</Scripts>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parent_PlayerName" inherits="GameFontNormalSmall"
+				justifyH="LEFT" text="Undyingpower">
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset x="25" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+				<FontString name="$parent_PlayerRoll" inherits="GameFontNormalSmall"
+				justifyH="RIGHT" text="100">
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset x="-5" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+				<Texture name="$parent_StarTexture" file="Interface\BUTTONS\UI-CheckBox-Check">					
+					<Size>
+						<AbsDimension x="16" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="0" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<HighlightTexture>
+			<Anchors>
+				<Anchor point="TOPLEFT" relativePoint="TOPLEFT" />
+				<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" />
+			</Anchors>
+			<Color r="1" g="1" b="1" a="1" />
+			<Gradient orientation="HORIZONTAL">
+				<MinColor r="1" g="1" b="1" a=".05" />
+				<MaxColor r="1" g="1" b="1" a=".2" />
+			</Gradient>
+		</HighlightTexture>
+	</Button>
+	
+	<Frame name="XckMLAdvancedMain" parent="LootFrame" hidden="true"
+	enableMouse="true" movable="false" frameStrata="FULLSCREEN_DIALOG">
+		<Size>
+			<AbsDimension x="206" y="250" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+				<Offset x="-190" y="-13" />
+			</Anchor>
+		</Anchors>
+		
+		<Backdrop bgFile="Interface\AddOns\XckMasterLootAdvanced\img\UI-Background-Marble"
+		edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<TileSize>
+				<AbsValue val="10" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="10" />
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset top="3" left="3" right="3" bottom="3" />
+			</BackgroundInsets>
+		</Backdrop>
+		<Frames>
+			<ScrollFrame name="$parent_ScrollFrame" virtual="UIPanelScrollFrameTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="10" y="-80"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-40" y="35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<ScrollChild>
+					<Frame name="$parent_ScrollChildFrame" setAllPoints="$parent">
+						<!--<Size>
+							<AbsDimension x="150" y="300"/>
+						</Size>-->
+						<Anchors>
+							<Anchor point="TOPLEFT"/>
+							<Anchor point="BOTTOMRIGHT"/>
+						</Anchors>           
+					</Frame>
+				</ScrollChild>
+			</ScrollFrame>
+			<Slider name="$parent_Slider" parent="XckMLAdvancedMain_ScrollFrame" minValue="0" maxValue="100" defaultValue="0" inherits="UIPanelScrollBarTemplate">
+				<Size>
+					<AbsDimension x="16" y="23"/>
+				</Size>
+				
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="-16"/>
+						</Offset>
+					</Anchor>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="16"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Slider>
+			
+			<Button name="$parent_ResetList" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Pass-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Pass-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Pass-Highlight" alphaMode="ADD"/>
+				<Size><AbsDimension x="20" y="20" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="TOPRIGHT" relativeTo="$parent_ScrollFrame">
+						<Offset x="20" y="65" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						MasterLootRolls:ClearRollList()
+						XckMLAdvancedLUA:Print("|cfffbb034|r|cffead454Rolls/Needs Reseted.")
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="$parent_RandomizeGuy" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Coin-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Coin-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Coin-Highlight" alphaMode="ADD"/>
+				<Size><AbsDimension x="22" y="22" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="LEFT" relativeTo="$parent_ResetList">
+						<Offset x="-15" y="-3" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:RandomizePlayer()
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="$parent_AnnounceMainSpec" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Dice-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Dice-Down"/>
+				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Dice-Highlight" alphaMode="ADD"/>
+				<Size><AbsDimension x="22" y="22" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="TOPLEFT" relativeTo="$parent_ScrollFrame">
+						<Offset x="55" y="62" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:AnnounceItemForNeed(getglobal(this:GetName()))
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parent_Countdown" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\Buttons\UI-RotationLeft-Button-Up"/>
+				<PushedTexture file="Interface\Buttons\UI-RotationLeft-Button-Down"/>
+				<Size><AbsDimension x="25" y="25" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="RIGHT" relativeTo="$parent_AnnounceMainSpec">
+						<Offset x="13" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:CountdownClicked(getglobal(this:GetName()))
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="$parent_AwardLoot" inherits="UIPanelButtonTemplate" text="Give to Winner">
+				<Size><AbsDimension x="130" y="20" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_ScrollFrame">
+						<Offset x="5" y="-5" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:AwardLootClicked()
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="$parent_AssignDE" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Up"/>
+				<PushedTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Down"/>
+				<HighlightTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Highlight" alphaMode="ADD"/>
+				<Size><AbsDimension x="22" y="22" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="RIGHT" relativeTo="$parent_AwardLoot">
+						<Offset x="13" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:AssignDEClicked()
+					</OnClick>
+				</Scripts>
+			</Button>
+            
+            <Button name="$parent_AssignBank" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file="Interface\ICONS\INV_Misc_Bag_08"/>
+				<PushedTexture file="Interface\ICONS\INV_Misc_Bag_08"/>
+				<Size><AbsDimension x="20" y="20" /></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="RIGHT" relativeTo="$parent_AssignDE">
+						<Offset x="13" y="0" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:AssignBankClicked()
+					</OnClick>
+				</Scripts>
+			</Button>
+            
+			<Button name="$parent_CurrentItemTexture" inherits="UIPanelButtonTemplate" text="">
+				<NormalTexture file=""/>
+				<Size><AbsDimension x="32" y="32" /></Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" >
+						<Offset x="10" y="-20" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						XckMLAdvancedLUA:SelectItemClicked(getglobal(this:GetName()))
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+		</Frames>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parent_CurrentItemLink" inherits="GameFontNormalSmall"
+				text="No item selected">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="">
+							<Offset x="45" y="-30" />
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+				<FontString name="$parent_PlayerLabel" inherits="GameFontNormalSmall" justifyH="LEFT" text="Player Name">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="LEFT" relativeTo="$parent_CurrentItemLink">
+							<Offset x="-20" y="-30" />
+						</Anchor>
+					</Anchors>
+					<Size><Absdimension x="100" /></Size>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+				<FontString name="$parent_RollNeed" inherits="GameFontNormalSmall" justifyH="RIGHT" text="Roll/Need">
+					<Anchors>
+						<Anchor point="TOP" relativePoint="TOP" relativeTo="$parent_PlayerLabel" />
+						<Anchor point="RIGHT">
+							<Offset x="-38" y="0" />
+						</Anchor>
+					</Anchors>
+					<Size><Absdimension x="100" /></Size>
+					<Color r="1" g="1" b="1" a="1" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnUpdate>
+				XckMLAdvancedLUA:OnUpdate()
+				XckMLAdvancedMain_PlayerLabel:SetText(XCKMLA_LabelMainPlayerName)
+				XckMLAdvancedMain_RollNeed:SetText(XCKMLA_LabelMainRollNeed)
+				XckMLAdvancedMain_AwardLoot:SetText(XCKMLA_ButtonMainGiveAward)
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>															

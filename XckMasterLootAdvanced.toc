@@ -1,0 +1,13 @@
+## Interface: 11200
+## Title: Xck MasterLoot Advanced |cfffbb034Vanilla by Xckbucl
+## Author: Xckbucl, Big Thanks to Zernin from MLM
+## Version: 3.0
+## Notes: Eases the stresses of passing out loot.
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: MasterLootManagerSettings
+Langs.Lua
+XckMLAdvancedMainFrame.xml
+XckMLAdvancedSettingsFrame.xml
+Lib.lua
+XckMLAdvancedML.lua

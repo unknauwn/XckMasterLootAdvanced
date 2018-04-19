@@ -1,0 +1,334 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	
+	<Frame name="XckMLAdvancedMainSettings" parent="LootFrame" hidden="true"
+	enableMouse="true" movable="false">
+		<Size>
+			<AbsDimension x="180" y="250" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
+				<Offset x="109" y="-13" />
+			</Anchor>
+		</Anchors>
+		
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background"
+		edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<TileSize>
+				<AbsValue val="10" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="10" />
+			</EdgeSize>
+			<BackgroundInsets>
+				<AbsInset top="3" left="3" right="3" bottom="3" />
+			</BackgroundInsets>
+			<Color r="0" g="0" b="0" a="1" />
+		</Backdrop>
+		<Frames>
+			<Frame name="$parent_SelectDE" inherits="UIDropDownMenuTemplate" text="Select DE">
+				<!--<Size><AbsDimension x="95" y="20" /></Size>-->
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
+						<Offset x="-8" y="-15" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.deDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+            <Frame name="$parent_SelectBank" inherits="UIDropDownMenuTemplate" text="Select Bank">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectDE">
+                        <Offset x="0" y="-6" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.bankDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+			<Frame name="$parent_SelectPoorGuy" inherits="UIDropDownMenuTemplate" text="Select Poor Guy">
+				<Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectBank">
+                        <Offset x="0" y="-6" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.poorguyDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+			<Frame name="$parent_Selectaq_zg_items_Guy" inherits="UIDropDownMenuTemplate" text="Select AQ_ZG Guy">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectPoorGuy">
+                        <Offset x="0" y="-6" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.aq_zg_items_guyDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+			<Frame name="$parent_SelectQualityList" inherits="UIDropDownMenuTemplate" text="Select QualityList">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_Selectaq_zg_items_Guy">
+                        <Offset x="0" y="-6" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.qualityListDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+			<Frame name="$parent_SelectRollOrNeed" inherits="UIDropDownMenuTemplate" text="Select Roll or Need">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectQualityList">
+                        <Offset x="0" y="-6" />
+					</Anchor>
+				</Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnLoad>
+                        XckMLAdvancedLUA.RollorNeedDropdownFrame = this
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			
+			<CheckButton name="$parentAutoLootRaidsItem" checked="false">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parent_SelectPoorGuy">
+						<Offset>
+							<AbsDimension x="145" y="3" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="AL">
+							<Anchors>
+								<Anchor point="TOP" relativePoint="TOP">
+									<Offset>
+										<AbsDimension x="0" y="8" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="10" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+			</CheckButton>
+			
+			<CheckButton name="$parentAutoLootTrash" checked="false">
+				<Size>
+					<AbsDimension x="32" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="$parent_Selectaq_zg_items_Guy">
+						<Offset>
+							<AbsDimension x="145" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="AL">
+							<Anchors>
+								<Anchor point="TOP" relativePoint="TOP">
+									<Offset>
+										<AbsDimension x="0" y="8" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="10" />
+							</FontHeight>
+							<Color r="1" g="0.8196079" b="0" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+								<Offset>
+									<AbsDimension x="1" y="-1" />
+								</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+				<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+				<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+			</CheckButton>
+			
+		</Frames>
+		<Layers>
+			<Layer>
+				<FontString name="$parent_LabelPlayerDE" font="Fonts\FRIZQT__.TTF" text="Player DE">
+					<Anchors>
+						<Anchor point="TOP" relativePoint="TOP" relativeTo="">
+							<Offset x="-15" y="-5" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<FontString name="$parent_LabelPlayerBank" font="Fonts\FRIZQT__.TTF" text="Player Bank">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerDE">
+							<Offset x="0" y="-38" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<FontString name="$parent_LabelPlayerTrash" font="Fonts\FRIZQT__.TTF" text="Player Trash">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerBank">
+							<Offset x="0" y="-38" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<FontString name="$parent_LabelPlayerTokens" font="Fonts\FRIZQT__.TTF" text="Player AQ/ZG">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerTrash">
+							<Offset x="0" y="-38" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<FontString name="$parent_LabelQualityList" font="Fonts\FRIZQT__.TTF" text="Min Quality Displayed">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerTokens">
+							<Offset x="0" y="-38" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<FontString name="$parent_LabelRollOrNeed" font="Fonts\FRIZQT__.TTF" text="Roll or Need Method">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelQualityList">
+							<Offset x="0" y="-38" />
+						</Anchor>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="10" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+						<Offset>
+							<AbsDimension x="1" y="-1" />
+						</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+		</Layers>
+		
+		<Scripts>
+			<OnLoad>
+				XckMLAdvancedLUA:OnLoad(getglobal(this:GetName()))
+				XckMLAdvancedMainSettings_LabelPlayerDE:SetText(XCKMLA_LabelSettingsPlayerDE)
+				XckMLAdvancedMainSettings_LabelPlayerBank:SetText(XCKMLA_LabelSettingsPlayerBank)
+				XckMLAdvancedMainSettings_LabelPlayerTrash:SetText(XCKMLA_LabelSettingsPlayerPoor)
+				XckMLAdvancedMainSettings_LabelPlayerTokens:SetText(XCKMLA_LabelSettingsPlayerRaidsItems)
+				XckMLAdvancedMainSettings_LabelQualityList:SetText(XCKMLA_LabelSettingsMinQuality)
+				XckMLAdvancedMainSettings_LabelRollOrNeed:SetText(XCKMLA_LabelSettingsRollorNeed)
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>															
