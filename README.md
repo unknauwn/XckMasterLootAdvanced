@@ -27,12 +27,12 @@ You can Change the quality of items displayed on Attrib List too, Poor to Legend
 If you want to switch an item you just need to click on It on Attrib Window.
 
 
-Buttons on the LootFrame:
-
-Settings on top right is for Settings the Addon.
-the Beer Icon is for announce all Drop on Corpse.
-the "Loot" button is for loot ALL ITEMS on corpse when you double click.
-
+Buttons on the LootFrame:__
+__
+Settings on top right is for Settings the Addon.__
+the Beer Icon is for announce all Drop on Corpse.__
+the "Loot" button is for loot ALL ITEMS on corpse when you double click.__
+__
 Buttons on Attrib Window:
 
 Need Dice is for Announce & strat Rand/Need on this Item.
