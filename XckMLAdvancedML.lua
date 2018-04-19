@@ -132,10 +132,10 @@ function XckMLAdvancedLUA:AnnounceItemForNeed(buttonFrame)
 	local itemLink = MasterLootTable:GetItemLink(XckMLAdvancedLUA.currentItemSelected)
 	if(XckMLAdvancedLUA.RollorNeed == "Need") then
 		self:Speak(itemLink..XCKMLA_CallAnnounce)
-		XckMLAdvancedLUA.dropannounced = "OpenToRoll"
 		elseif(XckMLAdvancedLUA.RollorNeed == "Roll") then
 		self:Speak(itemLink.."  -> Random")
 	end
+	XckMLAdvancedLUA.dropannounced = "OpenToRoll"
 end
 --Announce All Drop
 function XckMLAdvancedLUA:AnnounceLootClicked(buttonFrame)
@@ -465,7 +465,6 @@ function XckMLAdvancedLUA:HandlePossibleRoll(message, sender)
 			if (string.find(message, rollPattern)) then
 				_, _, player, roll, minRoll, maxRoll = string.find(message, rollPattern)
 				--self:Print(player .. " rolled a " .. roll .. " from " .. minRoll .. " to " .. maxRoll)
-				
 			end
 		end
 		if ((minRoll == "1" or not XckMLAdvancedLUASettings.enforcelow) and
