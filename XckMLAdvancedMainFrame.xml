@@ -116,7 +116,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 	</Button>
 	
 	<Frame name="XckMLAdvancedMain" parent="LootFrame" hidden="true"
-	enableMouse="true" movable="false" frameStrata="FULLSCREEN_DIALOG">
+	enableMouse="true" movable="false" frameStrata="BACKGROUND">
 		<Size>
 			<AbsDimension x="206" y="250" />
 		</Size>
