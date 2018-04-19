@@ -45,5 +45,7 @@ Broken sword is for give loot to the Disenchanter Player Set.<br />
 Bag is for give loot to the Banker Player Set.<br />
 <br />
 <br />
+Addon Detect Auto when player rolled or +1/+2 After announce of Item.
+<br />
 <br />
 Available Language : French & English Client supported for now<br />
