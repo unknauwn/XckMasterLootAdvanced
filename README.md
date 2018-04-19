@@ -3,7 +3,7 @@ Easy way to assign loot as ML<br />
 <br />
 A new Addon imported from TBC & fully redesigned & optimized.<br />
 <br />
-![alt text](https://image.ibb.co/mS2exS/Screenshot_1.png)<br />
+![alt text](https://preview.ibb.co/eCEjE7/Screenshot_1.png)<br />
 <br />
 <br />
 LootFrame is Movable, but i recommend to use Following Addons : AceLoot & Disable ML Loot Option in PFui if you are using it.
