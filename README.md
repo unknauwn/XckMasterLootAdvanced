@@ -6,8 +6,9 @@ A new Addon imported from TBC & fully redesigned & optimized.<br />
 ![alt text](https://preview.ibb.co/eCEjE7/Screenshot_1.png)<br />
 <br />
 <br />
-LootFrame is Movable, but i recommend to use Following Addons : AceLoot & Disable ML Loot Option in PFui if you are using it.
+LootFrame is Movable, but i recommend to use Following Addons : AceLoot.
 <br />
+This  Addon isnt compatible with AddOns changing UI of Default LootFrame like Skinning of Pfui, Xloot...
 <br />
 Command in game Available :<br />
 <br />
