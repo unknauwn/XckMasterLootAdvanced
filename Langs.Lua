@@ -86,7 +86,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_WARNING = "|cFF7F0000**WARNING**|r";
 	XCKMLA_WARNINGDE = " A player has Need this Item, Continue for DE ";
 	XCKMLA_DEAnnounceP1 = "No one has need: ";
-	XCKMLA_DEAnnounceP2 = "will take it for DE";
+	XCKMLA_DEAnnounceP2 = " will take it for DE";
 	XCKMLA_CANNOTFINDITEM = "|cFF7F0000Cannot find item - ";
 	XCKMLA_CANNOTFINDPLAYER = "|cFF7F0000Cannot find player - ";
 	XCKMLA_NoPlayerBANK = "|cFF7F0000Any Player for Bank Set.";
@@ -94,7 +94,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_WARNINGBank = "A player has Need this Item, Continue for bank ";
 	XCKMLA_WARNINGPRINT = "|cFF7F0000**WARNING**There are a player(s) on this Item**WARNING**";
 	XCKMLA_BankAnnounceP1 = " has been taken by ";
-	XCKMLA_BankAnnounceP2 = " To offer has the guild a Better Future..";
+	XCKMLA_BankAnnounceP2 = " to offer has the guild a Better Future..";
 	XCKMLA_CHighestRoll = "|cff20b2aa->|rCurrent Highest roll is: ";
 	XCKMLA_SettingsMSGForSave = "|cffead454Click again for Save Settings.";
 	XCKMLA_SettingsMSGForApply = "|cffead454Close & Open LootFrame for Apply Settings.";
