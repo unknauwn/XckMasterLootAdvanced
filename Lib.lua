@@ -46,7 +46,12 @@ if ( GetLocale() == "frFR" ) then
 		"Pièce Scalp-rouge",
 		"Noyau de feu",
 		"Noyau de lave",
-	"Minerai d'élémentium"}
+		"Minerai d'élémentium",
+		"Débris d'armure en tissu",
+		"Débris d'armure en cuir",
+		"Débris d'armure en mailles",
+		"Débris d'armure en plaques",
+	"Sable de sablier"}
 	
 	else
 	--ZG & AQ Items
@@ -96,5 +101,10 @@ if ( GetLocale() == "frFR" ) then
 		"Zulian Coin",
 		"Lava Core",
 		"Fiery Core",
-	"Elementium Ore"}
+		"Elementium Ore",
+		"Wartorn Cloth Scrap",
+		"Wartorn Leather Scrap",
+		"Wartorn Chain Scrap",
+		"Wartorn Plate Scrap",
+	"Hourglass Sand"}
 end		
