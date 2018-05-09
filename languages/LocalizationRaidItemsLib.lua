@@ -51,7 +51,8 @@ if ( GetLocale() == "frFR" ) then
 		"Débris d'armure en cuir",
 		"Débris d'armure en mailles",
 		"Débris d'armure en plaques",
-	"Sable de sablier"}
+	"Sable de sablier",
+	"Mot de dégel"}
 	
 	else
 	--ZG & AQ Items
@@ -106,5 +107,6 @@ if ( GetLocale() == "frFR" ) then
 		"Wartorn Leather Scrap",
 		"Wartorn Chain Scrap",
 		"Wartorn Plate Scrap",
-	"Hourglass Sand"}
+	"Hourglass Sand",
+	"Word of Thawing"}
 end		
