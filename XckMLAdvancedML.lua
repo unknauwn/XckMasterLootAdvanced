@@ -378,7 +378,7 @@ end
 
 ---- Random Player Raid
 function XckMLAdvancedLUA:RandomizePlayer()
-	if(MasterLootRolls.winningPlayer ~= nil) then
+	if(getn(MasterLootRolls.rolls) > 0) then
 		StaticPopupDialogs["Confirm_Attrib"].text = XCKMLA_RaidorListRoll
 		StaticPopupDialogs["Confirm_Attrib"].OnAccept = function() XckMLAdvancedLUA:RandomizePlayerInList() return end		
 		StaticPopup_Show("Confirm_Attrib")
@@ -1107,6 +1107,7 @@ function XckMLAdvancedLUA:InitButtonLootAllItems()
 	na:SetFontString(fo)
 	
 	na:SetScript('OnClick', function()
+	local NbPlayers = XckMLAdvancedLUA:GetNbPlayersRaidParty()
 		if (self:PlayerIsMasterLooter()) then			
 			if(XckMLAdvancedLUA.ConfirmNinja == nil) then
 				XckMLAdvancedLUA.ConfirmNinja = 1
@@ -1115,19 +1116,18 @@ function XckMLAdvancedLUA:InitButtonLootAllItems()
 				
 				for li = 1, GetNumLootItems() do 
 					local texture, name, quantity, quality, locked = GetLootSlotInfo(li)
-					if (quality  == 0) then
-						for ci = 1, XckMLAdvancedLUA:GetNbPlayersRaidParty() do 
-							if (GetMasterLootCandidate(ci) == XckMLAdvancedLUA.poorguy) then 
+					
+					if XckMLAdvancedLUA:CheckIsRaidItem(name) then
+						for ci = 1, NbPlayers do 
+							if (GetMasterLootCandidate(ci) == XckMLAdvancedLUA.aq_zg_items_guy) then 
 								GiveMasterLoot(li, ci); 
 							end
 						end
 						else
-						for i = 1, getn(Raids_Items) do
-							if(Raids_Items[i] == name) then
-								for ci = 1, XckMLAdvancedLUA:GetNbPlayersRaidParty() do 
-									if (GetMasterLootCandidate(ci) == XckMLAdvancedLUA.aq_zg_items_guy) then 
-										GiveMasterLoot(li, ci); 
-									end
+						if quality  <= 1 then
+							for ci = 1, NbPlayers do 
+								if (GetMasterLootCandidate(ci) == XckMLAdvancedLUA.poorguy) then 
+									GiveMasterLoot(li, ci); 
 								end
 							end
 						end
@@ -1158,13 +1158,13 @@ StaticPopupDialogs["Confirm_Attrib"] = {
 	OnAlt = function ()
 		VideoOptionsFrame_SetCurrentToDefaults();
 	end,
-	OnCancel = function() end,
-	showAlert = 1,
-	OnAccept = function() end,
-	timeout = 0,
-	whileDead = true,
-	hideOnEscape = true,
-	hasItemFrame = true,
-	preferredIndex = 3, 
-	OnShow = function() getglobal(this:GetName().."AlertIcon"):SetPoint("LEFT", 20, 0) getglobal(this:GetName().."AlertIcon"):SetTexture(MasterLootTable:GetItemTexture(XckMLAdvancedLUA.currentItemSelected)) getglobal(this:GetName().."AlertIcon"):SetWidth(40) getglobal(this:GetName().."AlertIcon"):SetHeight(40) end,
-}																																																	
+OnCancel = function() end,
+showAlert = 1,
+OnAccept = function() end,
+timeout = 0,
+whileDead = true,
+hideOnEscape = true,
+hasItemFrame = true,
+preferredIndex = 3, 
+OnShow = function() getglobal(this:GetName().."AlertIcon"):SetPoint("LEFT", 20, 0) getglobal(this:GetName().."AlertIcon"):SetTexture(MasterLootTable:GetItemTexture(XckMLAdvancedLUA.currentItemSelected)) getglobal(this:GetName().."AlertIcon"):SetWidth(40) getglobal(this:GetName().."AlertIcon"):SetHeight(40) end,
+}																																																		

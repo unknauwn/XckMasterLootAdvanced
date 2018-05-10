@@ -52,7 +52,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_FORDE = "pour DEZ ";
 	XCKMLA_FORBANK = "pour mettre a la banque ";
 	XCKMLA_RandomizerRaidOnly = "|cffead454Fonctionne en Raid Uniquement";
-	XCKMLA_PreAttribCountdown = " 7Sc avant d'aller sur le Joueur suivant --> ";
+	XCKMLA_PreAttribCountdown = " 5sc avant d'aller sur le Joueur suivant --> ";
 	XCKMLA_RaidorListRoll = "Voulez-vous faire un Random parmis les Joueurs de la Liste au lieu d'un RaidRoll?";
 	else
 	XCKMLA_rollPattern = "(.+) rolls (%d+) %((%d+)%-(%d+)%)"
@@ -108,6 +108,6 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_FORDE = "for DE ";
 	XCKMLA_FORBANK = "for bank it ";
 	XCKMLA_RandomizerRaidOnly = "|cffead454Working in Raid Only";
-	XCKMLA_PreAttribCountdown = " 7sc until will go on following Player --> ";
+	XCKMLA_PreAttribCountdown = " 5sc until will go on following Player --> ";
 	XCKMLA_RaidorListRoll = "Do you want made a Random for the Players in the List instead a RaidRoll?";
 end
