@@ -111,7 +111,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Frame>
 			
-			<CheckButton name="$parentAutoLootRaidsItem" checked="false">
+			<CheckButton name="$parentAutoLootTrash" checked="false">
 				<Size>
 					<AbsDimension x="32" y="32" />
 				</Size>
@@ -156,7 +156,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
 			</CheckButton>
 			
-			<CheckButton name="$parentAutoLootTrash" checked="false">
+			<CheckButton name="$parentAutoLootRaidsItem" checked="false">
 				<Size>
 					<AbsDimension x="32" y="32" />
 				</Size>
