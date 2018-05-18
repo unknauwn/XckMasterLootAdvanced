@@ -12,10 +12,13 @@ A new Addon imported from TBC & fully redesigned & optimized.
 
 
 *Command in game Available :*
- /xckmla Rand
- This will make a Raid Random Player, like when you want give a Onyxia bag to random Guy
- /xckmla info
- This will show you infos about addon
+> /xckmla Rand
+
+> This will make a Raid Random Player, like when you want give a Onyxia bag to random Guy
+
+> /xckmla info
+
+> This will show you infos about addon
 
 
 ## Main Funcs of this Addon :
@@ -25,7 +28,9 @@ A new Addon imported from TBC & fully redesigned & optimized.
 **All is configurable**<br />
 
 You can set a Disenchanter, a Banker, a guy for grey & White items, a guy for all Raids items like Idols, Coins, Elementium, Lavacore etc
+
 You Can set AutoLoot for Trash & Raids item guys, addon will attrib auto on openning the LootFrame is AL is Checked in Settings.
+
 You can Change the quality of items displayed on Attrib List too, Poor to Legendary.
 
 If you want to switch an item you just need to click on It on Attrib Window.
