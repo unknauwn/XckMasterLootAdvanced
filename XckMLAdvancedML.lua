@@ -611,7 +611,7 @@ function MasterLootRolls:UpdateTopRoll()
 		highestRoll = self.rolls[rollIndex].roll
 		--self.winningPlayer = self.rolls[rollIndex].player  // Can be missed the attrib if player roll or +1 at the last moment
 		if(XckMLAdvancedLUA.RollorNeed == "Roll") then
-			XckMLAdvancedLUA:Print(XCKMLA_CHighestRoll.."|cffffd700[|r|c"..XckMLAdvancedLUA:GetHexClassColor(self.winningPlayer)..self.winningPlayer.."|r|cffffd700]")
+				XckMLAdvancedLUA:Print(XCKMLA_CHighestRoll.."|cffffd700[|r|c"..XckMLAdvancedLUA:GetHexClassColor(self.rolls[rollIndex].player)..self.rolls[rollIndex].player.."|r|cffffd700]")
 		end
 		
 		end
