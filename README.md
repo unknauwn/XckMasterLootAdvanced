@@ -6,8 +6,6 @@ A new Addon imported from TBC/WOTLK & fully redesigned & optimized.
 
 <img src="https://i.imgur.com/akTfwg1.png" width="68.87%">
 
-**LootFrame is Movable, but i recommend to use Following Addons : AceLoot.** 
-
 **This  Addon isnt compatible with AddOns changing UI of Default LootFrame like Skinning of ElvUI, Xloot...**
 
 
