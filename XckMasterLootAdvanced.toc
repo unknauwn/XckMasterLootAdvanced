@@ -1,13 +1,11 @@
-## Interface: 11200
+## Interface: 11303
 ## Title: Xck MasterLoot Advanced |cfffbb034Vanilla by Xckbucl
-## Author: Xckbucl, Big Thanks to Zernin from MLM
+## Author: Xckbucl, Big Thanks to Zernin from MLM Base WOTLK Start, 2019
 ## Version: 3.6
 ## Notes: Eases the stresses of passing out loot.
-## DefaultState: Enabled
-## LoadOnDemand: 0
 ## SavedVariables: MasterLootManagerSettings
 languages\LocalizationsStrings.lua
+XckMLAdvancedML.lua
 XckMLAdvancedMainFrame.xml
 XckMLAdvancedSettingsFrame.xml
 languages\LocalizationRaidItemsLib.lua
-XckMLAdvancedML.lua

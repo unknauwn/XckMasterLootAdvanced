@@ -2,7 +2,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_rollPattern = "(.+) obtient un (%d+) %((%d+)%-(%d+)%)"
 	XCKMLA_LabelSettingsPlayerDE = "Joueur DEZ";
 	XCKMLA_LabelSettingsPlayerBank = "Joueur Bank";
-	XCKMLA_LabelSettingsPlayerPoor = "Joueur Poubelle";
+	XCKMLA_LabelSettingsPlayerPoor = "";--Joueur Poubelle
 	XCKMLA_LabelSettingsPlayerRaidsItems = "Joueurs Objets Raids";
 	XCKMLA_LabelSettingsMinQuality = "Qualitée Minimum";
 	XCKMLA_LabelSettingsRollorNeed = "Rand/Besoin Methode";
@@ -10,7 +10,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_LabelMainRollNeed = "Rand/Besoin";
 	XCKMLA_ButtonMainGiveAward = "Attribuer au Gagnant";
 	XCKMLA_ResetRollNeedList = "Rand/Besoin Reset.";
-	XCKMLA_WelcomeMessage = "Xckbucl Master Loot Advanced|r Par Xckbucl sur K2/Elysium/Lightbringer || |cff49C0C0/xckmla info |rpour + d'Infos|r || |cff49C0C0/xckmla rand |rpour rand un joueur dans le Raid";
+	XCKMLA_WelcomeMessage = "Xckbucl Master Loot Advanced|r Par Xckbucl sur K2/Elysium/Lightbringer/Sulfuron Classic || |cff49C0C0/xckmla info |rpour + d'Infos|r || |cff49C0C0/xckmla rand |rpour rand un joueur dans le Raid";
 	XCKMLA_InfoAboutMessage = "|cff49C0C0AL|r dans Options signifie Loot Auto a l'ouverture de la fenetre de Loot \n|cff49C0C0Qualité Minimum|r dans Option signifie la qualitée minimum des loot a afficher dans la liste d'Attribution \n|cff49C0C0Objets Raid|r dans Option contient tout les LQE comme Noyau de feu, Idoles AQ, Bijou ZG etc \n|cff49C0C0Rand ou Besoin|r dans Option depend si vous utilisez les random ou les +1/+2";
 	XCKMLA_SavedSettingPlayerDE = "Joueur DEZ est : |c";
 	XCKMLA_SavedSettingPlayerBank = "Joueur Banque est :  |c";
@@ -66,7 +66,7 @@ if ( GetLocale() == "frFR" ) then
 	XCKMLA_LabelMainRollNeed = "Roll/Need";
 	XCKMLA_ButtonMainGiveAward = "Give to Winner";
 	XCKMLA_ResetRollNeedList = "Rolls/Needs Reseted.";
-	XCKMLA_WelcomeMessage = "Xckbucl Master Loot Advanced|r Made by Xckbucl on K2/Elysium/Lightbringer || |cff49C0C0/xckmla info |rfor more Info|r || |cff49C0C0/xckmla rand |rfor for rand a player in Raid";
+	XCKMLA_WelcomeMessage = "Xckbucl Master Loot Advanced|r Made by Xckbucl on K2/Elysium/Lightbringer/Sulfuron Classic || |cff49C0C0/xckmla info |rfor more Info|r || |cff49C0C0/xckmla rand |rfor for rand a player in Raid";
 	XCKMLA_InfoAboutMessage = "|cff49C0C0AL |rin Settings mean AutoLoot on Open Loot Window \n|cff49C0C0Min Quality to Display|r in Settings mean minimum quality will be filter to show in LootList \n|cff49C0C0Raids Items|r in Settings contain all BOE like Lava Core, Idols, Coins, Elementium etc \n|cff49C0C0Roll or Need|r in Settings depend what system you use, Random or +1/+2";
 	XCKMLA_SavedSettingPlayerDE = "Player DE is : |c";
 	XCKMLA_SavedSettingPlayerBank = "Player Bankin is :  |c";

@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 	<Script file="XckMLAdvancedML.lua"></Script>
-	<Button name="SelectionButtonTemplate" parent="UIParent" virtual="true">
+	<Button name="SelectionButtonTemplate" parent="SelectFrame" virtual="true">
 		<Size><AbsDimension y="32" /></Size>
 		<Anchors>
 			<Anchor point="RIGHT">
@@ -13,12 +13,12 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		</Anchors>
 		<Scripts>
 			<OnClick>
-				XckMLAdvancedLUA:SelectionButtonClicked(getglobal(this:GetName()))
+				XckMLAdvancedLUA:SelectionButtonClicked(self)
 			</OnClick>
 		</Scripts>
 		<Layers>
 			<Layer level="OVERLAY">
-				<Texture name="$parent_ItemTexture" file="">					
+				<Texture name="$parent_ItemTexture">					
 					<Size>
 						<AbsDimension x="32" y="32" />
 					</Size>
@@ -53,7 +53,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 			</Gradient>
 		</HighlightTexture>
 	</Button>
-	<Button name="PlayerSelectionButtonTemplate" parent="UIParent" virtual="true">
+	<Button name="PlayerSelectionButtonTemplate" parent="XckMLAdvancedMain_ScrollFrame_ScrollChildFrame" virtual="true">
 		<Size><AbsDimension y="15" /></Size>
 		<Anchors>
 			<Anchor point="RIGHT">
@@ -65,13 +65,13 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		</Anchors>
 		<Scripts>
 			<OnClick>
-				XckMLAdvancedLUA:PlayerSelectionButtonClicked(getglobal(this:GetName()))
+				XckMLAdvancedLUA:PlayerSelectionButtonClicked(self)
 			</OnClick>
 		</Scripts>
 		<Layers>
 			<Layer level="ARTWORK">
 				<FontString name="$parent_PlayerName" inherits="GameFontNormalSmall"
-				justifyH="LEFT" text="Undyingpower">
+				justifyH="LEFT" text="Unknown">
 					<Anchors>
 						<Anchor point="LEFT">
 							<Offset x="25" y="0" />
@@ -127,7 +127,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		</Anchors>
 		
 		<Backdrop bgFile="Interface\AddOns\XckMasterLootAdvanced\img\UI-Background-Marble"
-		edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+		edgeFile="Interface\DialogFrame\UI-DialogBox-Border">
 			<TileSize>
 				<AbsValue val="10" />
 			</TileSize>
@@ -183,14 +183,14 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Anchors>
 			</Slider>
 			
-			<Button name="$parent_ResetList" inherits="UIPanelButtonTemplate" text="">
+			<Button name="$parent_ResetList" inherits="" text="">
 				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Pass-Up"/>
 				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Pass-Down"/>
 				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Pass-Highlight" alphaMode="ADD"/>
 				<Size><AbsDimension x="20" y="20" /></Size>
 				<Anchors>
 					<Anchor point="CENTER" relativePoint="TOPRIGHT" relativeTo="$parent_ScrollFrame">
-						<Offset x="20" y="65" />
+						<Offset x="0" y="65" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -201,7 +201,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Button>
 			
-			<Button name="$parent_RandomizeGuy" inherits="UIPanelButtonTemplate" text="">
+			<Button name="$parent_RandomizeGuy" inherits="" text="">
 				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Coin-Up"/>
 				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Coin-Down"/>
 				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Coin-Highlight" alphaMode="ADD"/>
@@ -218,7 +218,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Button>
 			
-			<Button name="$parent_AnnounceMainSpec" inherits="UIPanelButtonTemplate" text="">
+			<Button name="$parent_AnnounceMainSpec" inherits="" text="">
 				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Dice-Up"/>
 				<PushedTexture file="Interface\Buttons\UI-GroupLoot-Dice-Down"/>
 				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Dice-Highlight" alphaMode="ADD"/>
@@ -230,11 +230,12 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						XckMLAdvancedLUA:AnnounceItemForNeed(getglobal(this:GetName()))
+						XckMLAdvancedLUA:AnnounceItemForNeed(self)
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="$parent_Countdown" inherits="UIPanelButtonTemplate" text="">
+			
+			<Button name="$parent_Countdown" inherits="" text="">
 				<NormalTexture file="Interface\Buttons\UI-RotationLeft-Button-Up"/>
 				<PushedTexture file="Interface\Buttons\UI-RotationLeft-Button-Down"/>
 				<Size><AbsDimension x="25" y="25" /></Size>
@@ -254,7 +255,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				<Size><AbsDimension x="130" y="20" /></Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_ScrollFrame">
-						<Offset x="5" y="-5" />
+						<Offset x="-5" y="-5" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -264,14 +265,14 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Button>
 			
-			<Button name="$parent_AssignDE" inherits="UIPanelButtonTemplate" text="">
+			<Button name="$parent_AssignDE" inherits="" text="">
 				<NormalTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Up"/>
 				<PushedTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Down"/>
 				<HighlightTexture file="Interface\AddOns\XckMasterLootAdvanced\img\UI-GroupLoot-DE-Highlight" alphaMode="ADD"/>
 				<Size><AbsDimension x="22" y="22" /></Size>
 				<Anchors>
 					<Anchor point="CENTER" relativePoint="RIGHT" relativeTo="$parent_AwardLoot">
-						<Offset x="13" y="0" />
+						<Offset x="15" y="0" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -281,13 +282,13 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Button>
             
-            <Button name="$parent_AssignBank" inherits="UIPanelButtonTemplate" text="">
+            <Button name="$parent_AssignBank" inherits="" text="">
 				<NormalTexture file="Interface\ICONS\INV_Misc_Bag_08"/>
 				<PushedTexture file="Interface\ICONS\INV_Misc_Bag_08"/>
 				<Size><AbsDimension x="20" y="20" /></Size>
 				<Anchors>
 					<Anchor point="CENTER" relativePoint="RIGHT" relativeTo="$parent_AssignDE">
-						<Offset x="13" y="0" />
+						<Offset x="15" y="0" />
 					</Anchor>
 				</Anchors>
 				<Scripts>
@@ -297,8 +298,8 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Scripts>
 			</Button>
             
-			<Button name="$parent_CurrentItemTexture" inherits="UIPanelButtonTemplate" text="">
-				<NormalTexture file=""/>
+			<Button name="$parent_CurrentItemTexture" inherits="" text="">
+				<NormalTexture file="Interface\BUTTONS\UI-CheckBox-Check"/>
 				<Size><AbsDimension x="32" y="32" /></Size>
 				<Anchors>
 					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" >
@@ -307,7 +308,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						XckMLAdvancedLUA:SelectItemClicked(getglobal(this:GetName()))
+						XckMLAdvancedLUA:SelectItemClicked(self)
 					</OnClick>
 				</Scripts>
 			</Button>
@@ -318,7 +319,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				<FontString name="$parent_CurrentItemLink" inherits="GameFontNormalSmall"
 				text="No item selected">
 					<Anchors>
-						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="">
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT">
 							<Offset x="45" y="-30" />
 						</Anchor>
 					</Anchors>
@@ -347,7 +348,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		</Layers>
 		<Scripts>
 			<OnUpdate>
-				XckMLAdvancedLUA:OnUpdate()
+				XckMLAdvancedLUA.frame:OnUpdate()
 				XckMLAdvancedMain_PlayerLabel:SetText(XCKMLA_LabelMainPlayerName)
 				XckMLAdvancedMain_RollNeed:SetText(XCKMLA_LabelMainRollNeed)
 				XckMLAdvancedMain_AwardLoot:SetText(XCKMLA_ButtonMainGiveAward)

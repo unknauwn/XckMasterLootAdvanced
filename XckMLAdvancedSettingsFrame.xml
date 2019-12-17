@@ -8,7 +8,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		</Size>
 		<Anchors>
 			<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
-				<Offset x="109" y="-13" />
+				<Offset x="178" y="0" />
 			</Anchor>
 		</Anchors>
 		
@@ -36,7 +36,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.deDropdownFrame = this
+                       <!-- XckMLAdvancedLUA.deDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -50,7 +50,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.bankDropdownFrame = this
+                        <!--XckMLAdvancedLUA.bankDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -64,21 +64,22 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.poorguyDropdownFrame = this
+					self:Hide()
+                       <!-- XckMLAdvancedLUA.poorguyDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
 			
 			<Frame name="$parent_Selectaq_zg_items_Guy" inherits="UIDropDownMenuTemplate" text="Select AQ_ZG Guy">
                 <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectPoorGuy">
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent_SelectBank">
                         <Offset x="0" y="-6" />
 					</Anchor>
 				</Anchors>
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.aq_zg_items_guyDropdownFrame = this
+                       <!-- XckMLAdvancedLUA.aq_zg_items_guyDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -92,7 +93,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.qualityListDropdownFrame = this
+                        <!--XckMLAdvancedLUA.qualityListDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -106,7 +107,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
                 <FontString inherits="ChatFontNormal"/>
                 <Scripts>
                     <OnLoad>
-                        XckMLAdvancedLUA.RollorNeedDropdownFrame = this
+                       <!-- XckMLAdvancedLUA.RollorNeedDropdownFrame = XckMLAdvancedMainSettings-->
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -146,8 +147,9 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 					</Layer>
 				</Layers>
 				<Scripts>
-					<OnClick>
-					</OnClick>
+					<OnLoad>
+					self:Hide()
+					</OnLoad>
 				</Scripts>
 				<NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
 				<PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
@@ -206,7 +208,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 			<Layer>
 				<FontString name="$parent_LabelPlayerDE" font="Fonts\FRIZQT__.TTF" text="Player DE">
 					<Anchors>
-						<Anchor point="TOP" relativePoint="TOP" relativeTo="">
+						<Anchor point="TOP" relativePoint="TOP">
 							<Offset x="-15" y="-5" />
 						</Anchor>
 					</Anchors>
@@ -227,7 +229,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 					<Anchors>
 						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerDE">
 							<Offset x="0" y="-38" />
-						</Anchor>
+						 </Anchor>
 					</Anchors>
 					<FontHeight>
 						<AbsValue val="10" />
@@ -242,7 +244,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 				</FontString>
 			</Layer>
 			<Layer>
-				<FontString name="$parent_LabelPlayerTrash" font="Fonts\FRIZQT__.TTF" text="Player Trash">
+				<FontString name="$parent_LabelPlayerTrash" font="Fonts\FRIZQT__.TTF" text=""><!-- Player Trash -->
 					<Anchors>
 						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerBank">
 							<Offset x="0" y="-38" />
@@ -263,7 +265,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 			<Layer>
 				<FontString name="$parent_LabelPlayerTokens" font="Fonts\FRIZQT__.TTF" text="Player AQ/ZG">
 					<Anchors>
-						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerTrash">
+						<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent_LabelPlayerBank">
 							<Offset x="0" y="-38" />
 						</Anchor>
 					</Anchors>
@@ -321,7 +323,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
 		
 		<Scripts>
 			<OnLoad>
-				XckMLAdvancedLUA:OnLoad(getglobal(this:GetName()))
+				XckMLAdvancedLUA:initialize()
 				XckMLAdvancedMainSettings_LabelPlayerDE:SetText(XCKMLA_LabelSettingsPlayerDE)
 				XckMLAdvancedMainSettings_LabelPlayerBank:SetText(XCKMLA_LabelSettingsPlayerBank)
 				XckMLAdvancedMainSettings_LabelPlayerTrash:SetText(XCKMLA_LabelSettingsPlayerPoor)
