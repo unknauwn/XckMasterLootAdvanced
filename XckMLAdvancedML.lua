@@ -1029,7 +1029,9 @@ function XckMLAdvancedLUA:UpdateDropdowns()
 	if(self:PlayerIsInARaid()) then
 		for x = 1, numRaidMembers do
 			local name, rank, subgroup, level, class, fileName, zone, online, isDead, role, isML = GetRaidRosterInfo(x);
-			XckMLAdvancedLUA.dropdownData[subgroup][name] = name;
+			if XckMLAdvancedLUA.dropdownData[subgroup] then
+				XckMLAdvancedLUA.dropdownData[subgroup][name] = name;
+			end
 			XckMLAdvancedLUA.dropdownGroupData[subgroup] = true;
 		end
 		elseif(self:PlayerIsInAParty() and self:PlayerIsInARaid() == false) then
